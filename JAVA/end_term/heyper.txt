@@ -1,0 +1,51 @@
+class SomeClass {
+
+    int val = 50;
+    String str = "default";
+
+    public SomeClass() {
+       this(100);
+    }
+
+    public SomeClass(int val) {
+        val = val;
+    }
+
+    public SomeClass(String str) {
+        this();
+        this.str = "some-value";
+    }
+
+    public SomeClass(int val, String str) {
+        this(str);
+    }
+}
+
+SomeClass instance = new SomeClass(300, "another-value");
+
+val = 50, str = "some-value"
+
+
+
+===============================================================
+
+import java.util.Scanner;
+
+class ConcatenateStringsProblem {
+
+    public static String concatenateStringsWithoutDigits(String[] strings) {
+        for (int i = 0; i < strings.length; i++) {
+            // Remove all digits from each string
+            strings[i] = strings[i].replaceAll("\\d", "");
+        }
+        // Join all strings without any separator
+        return String.join("", strings);
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String[] strings = scanner.nextLine().split("\\s+");
+        String result = concatenateStringsWithoutDigits(strings);
+        System.out.println(result);
+    }
+}
